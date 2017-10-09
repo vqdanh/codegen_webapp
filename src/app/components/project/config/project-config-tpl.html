@@ -1,0 +1,100 @@
+<md-content flex layout-padding>
+	<form name="configForm">
+		<div class="config-content">
+			<h5>Project Config</h5>
+			<md-input-container class="md-block">
+		    <label>Name</label>
+	      <input md-maxlength="100" required name="project.displayName" ng-model="projectConfig.displayName" ng-change="onProjectConfigChange($event)"/>
+
+	      <div ng-messages="configForm['project.displayName'].$error">
+	        <div ng-message="required">Package is required.</div>
+	        <div ng-message="md-maxlength">The package has to be less than 100 characters long.</div>
+	      </div>
+		  </md-input-container>
+		  <md-input-container class="md-block">
+		    <label>GroupId</label>
+	      <input md-maxlength="100" required name="project.groupId" ng-model="projectConfig.groupId" ng-change="onProjectConfigChange($event)"/>
+
+	      <div ng-messages="configForm['project.groupId'].$error">
+	        <div ng-message="required">GroupId is required.</div>
+	        <div ng-message="md-maxlength">The groupId has to be less than 100 characters long.</div>
+	      </div>
+		  </md-input-container>
+		  <md-input-container class="md-block">
+		    <label>ArtifactId</label>
+	      <input md-maxlength="100" required name="project.artifactId" ng-model="projectConfig.artifactId" ng-change="onProjectConfigChange($event)"/>
+
+	      <div ng-messages="configForm['project.artifactId'].$error">
+	        <div ng-message="required">ArtifactId is required.</div>
+	        <div ng-message="md-maxlength">The artifactId has to be less than 100 characters long.</div>
+	      </div>
+		  </md-input-container>
+
+		  <md-input-container class="md-block">
+		    <label>Rest base path</label>
+	      <input required md-maxlength="100" name="project.restBasePath"  
+	      	ng-model="projectConfig.restBasePath" 
+	      	ng-change="onProjectConfigChange($event)"/>
+	      <div ng-messages="configForm['project.restBasePath'].$error">
+	      	<div ng-message="required">Rest base path is required.</div>
+	        <div ng-message="md-maxlength">The path has to be less than 100 characters long.</div>
+	      </div>
+		  </md-input-container>
+
+		</div>
+		<div ng-repeat="(key, config) in projectConfig.packageConfigs" class="config-content">
+			<h5>
+				<span>{{config.displayName}}</span>
+				<md-button class="md-icon-button md-primary" aria-label="Delete"
+					ng-click="deletePackageConfig(key)">
+	        <md-icon md-svg-icon="assets/icons/minus.svg"></md-icon>
+	      </md-button>
+	    </h5>
+			<md-input-container class="md-block">
+		    <label>package</label>
+	      <input md-maxlength="100" required name="{{key}}.package" ng-model="config.name" />
+
+	      <div ng-messages="configForm[key+'.package'].$error" >
+	        <div ng-message="required">Package is required.</div>
+	        <div ng-message="md-maxlength">The package has to be less than 100 characters long.</div>
+	      </div>
+		  </md-input-container>
+		</div>
+		<div layout="row">
+			<span flex></span>
+			<md-button ng-disabled="configForm.$invalid" class="md-raised md-primary" ng-click="onSaveClick($event)">Save</md-button>
+		</div>
+		
+	</form>
+	<md-divider></md-divider>
+	<form name="packageForm">
+		<section class="add-component" layout="column" layout-sm="column">
+			<h5>
+				<span>Add package</span>
+				<md-button class="md-icon-button md-primary" aria-label="Add"
+					ng-disabled="invalidNewComponent"
+					ng-click="addPackageConfig($event)">
+	        <md-icon md-svg-icon="assets/icons/plus.svg"></md-icon>
+	      </md-button>
+			</h5>
+			<md-input-container class="md-block">
+		    <label>Key</label>
+	      <input md-maxlength="100" required name="newPackageConfig.key" 
+	      ng-model="newPackageConfig.key" 
+	      ng-change="newPackageConfigDataChange($event)"/>
+		  </md-input-container>
+		  <md-input-container class="md-block">
+		    <label>Name</label>
+	      <input md-maxlength="100" required name="newPackageConfig.displayName" 
+	      ng-model="newPackageConfig.displayName" 
+	      ng-change="newPackageConfigDataChange($event)"/>
+		  </md-input-container>
+			<md-input-container class="md-block">
+		    <label>Package</label>
+	      <input md-maxlength="100" required name="newPackageConfig.name" 
+	      ng-model="newPackageConfig.name" 
+	      ng-change="newPackageConfigDataChange($event)"/>
+		  </md-input-container>
+		</section>
+	</form>
+</md-content>

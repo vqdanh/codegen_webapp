@@ -1,0 +1,36 @@
+<div flex layout="row" class="project-component">
+	<md-sidenav
+		id="project-sidenav"
+		class="md-whiteframe-4dp md-sidenav-left"
+	 	md-component-id="project-sidenav"
+	 	md-is-locked-open="true">
+		<md-list id="app_device_sub_menu">
+			<md-list-item ng-class="{'active': (activeListItem.projectId == undefined) }"
+			ng-click="goToProjectManage()">
+				All Projects
+			</md-list-item>
+			<md-divider></md-divider>
+			<md-list-item>
+				<h5>Recent projects</h5>
+			</md-list-item>
+			<md-list-item flex ng-repeat="project in recentProjects" 
+				class="recent-project"
+				ng-class="{'active': (activeListItem.projectId == project.id) }">
+				<span class="project-name">{{project.name}}</span>
+				<span layout="row" class="project-actions" layout-align="end-start">
+					<md-button ng-click="onDevelopProjectClick(project)" 
+						ng-class="{'active': activeListItem.projectId == project.id && activeListItem.action == 'develop'}"
+						class="md-icon-button" aria-label="Develop">
+			    	<md-icon md-svg-icon="assets/icons/view.svg"></md-icon>
+			    </md-button>
+					<md-button ng-click="onEditProjectClick(project)"
+						ng-class="{'active': activeListItem.projectId == project.id && activeListItem.action == 'edit'}" 
+						class="md-icon-button" aria-label="Edit">
+			    	<md-icon md-svg-icon="assets/icons/edit.svg" class="icon-s20"></md-icon>
+			    </md-button>
+				</span>
+			</md-list-item>
+		</md-list>
+	</md-sidenav>
+	<div ui-view layout-fill flex></div>
+</div>

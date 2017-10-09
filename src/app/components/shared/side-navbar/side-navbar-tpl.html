@@ -1,0 +1,21 @@
+<md-sidenav
+	ng-class="md-sidenav-{{direction}}"
+ 	md-component-id="{{sidenavId}}"
+ 	md-is-locked-open="isLockOpen">
+	<header class="nav-header" ng-if="headerData" >
+		<div class="docs-logo">
+			<md-icon md-svg-icon="assets/icons/{{headerData.icon}}"></md-icon>
+			<h1>{{headerData.title}}</h1>
+		</div>
+		<md-divider></md-divider>
+	</header>
+	<md-list id="app_device_sub_menu">
+		<md-list-item flex ng-repeat="item in menuItems" 
+			class="{{ $state.includes(item.state)?'active':'' }} checked">
+			<md-button class="{{ id > 0?'can_click':'cant_click' }}" ng-click="onSelectMenuItem(item)">
+				<md-icon class="{{ item.icon }} "></md-icon>
+				<span>{{item.name}}</span>
+			</md-button>
+		</md-list-item>
+	</md-list>
+</md-sidenav>

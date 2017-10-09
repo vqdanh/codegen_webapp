@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<title> codegen </title>
+	<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/tomorrow.min.css" />
+	<link rel="stylesheet" type="text/css" href="./jspm_packages/github/angular/bower-material@master/angular-material.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./jspm_packages/github/daniel-nagy/md-data-table@0.10.10/dist/md-data-table.min.css"  />
+	<link rel="stylesheet" type="text/css" href="./jspm_packages/github/shuyu/angular-material-fileinput@1.5.2/dist/lf-ng-md-file-input.min.css"  />
+	<link rel="stylesheet" type="text/css" href="./jspm_packages/github/logbon72/angular-material-datetimepicker@1.5.1/css/material-datetimepicker.css"  />
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style2.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/css/table-manage.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/css/schema-manage.css"/>
+	
+
+</head>
+
+<body ng-cloak layout="column">
+	<!-- main-view -->
+	<div ui-view layout-fill></div>
+	<!-- main-view -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="./jspm_packages/system.js" type="text/javascript"></script>
+	<script src="config.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		System
+			.import('src/boot/boot')
+			.catch(console.error.bind(console)); // make sure any errors print to console
+	</script>
+	
+</body>
+</html>

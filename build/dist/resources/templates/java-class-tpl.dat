@@ -1,0 +1,12 @@
+package ${packageName};
+
+${import}
+
+${annotations}
+public ${abstractType} ${className}${extendedClasses}${implementInterfaces} {
+	
+${properties}
+
+${methods}
+
+}

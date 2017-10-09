@@ -1,0 +1,35 @@
+<md-content flex layout-padding>
+	<md-toolbar class="md-primary md-small-toolbar-tools" >
+    <div class="md-toolbar-tools">
+      <h3 class="md-flex">Entity class configuration</h3>
+      <span flex></span>
+      <md-button aria-label="photo" class="md-icon-button"ei ng-click="showEntityConfig = !showEntityConfig">
+        <md-icon md-svg-src="assets/icons/ic_code_24px.svg"></md-icon>
+      </md-button>
+    </div>
+	</md-toolbar>
+	<form name="entityConfigForm" ng-show="showEntityConfig">
+		<md-input-container class="md-block">
+	    <md-switch class="md-primary" name="special" ng-model="entityConfig.includesAnnotation" required>
+	      Includes Annotation
+	    </md-switch>
+	  </md-input-container>
+	</form>
+	<br />
+	<md-toolbar class="md-primary md-small-toolbar-tools">
+    <div class="md-toolbar-tools">
+      <h3 class="md-flex">EI class configuration</h3>
+      <span flex></span>
+      <md-button aria-label="photo" class="md-icon-button"ei ng-click="showEIConfig = !showEIConfig">
+        <md-icon md-svg-src="assets/icons/ic_code_24px.svg"></md-icon>
+      </md-button>
+    </div>
+	</md-toolbar>
+	<form name="ConfigForm" ng-show="showEIConfig">
+		<md-input-container class="md-block">
+	    <md-switch class="md-primary" name="special" ng-model="eiConfig.includesAnnotation" required>
+	      Includes Annotation
+	    </md-switch>
+  	</md-input-container>
+  </form>
+</md-content>

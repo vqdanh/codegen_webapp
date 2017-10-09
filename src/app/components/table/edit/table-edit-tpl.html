@@ -1,0 +1,64 @@
+
+<md-container class="tab-container">
+  <md-toolbar class="class-toolbar">
+    <div class="md-toolbar-tools">
+      <md-button ng-click="onShowMethodListClick($event)">Set Methods</md-button>
+      <md-button ng-click="onAddMethodClick($event)">Create Method</md-button>
+    </div>
+  </md-toolbar>
+  <md-content class="tab-content" layout-fill flex>
+    <div id="{{name}}-pane1" class= "split split-horizontal source-code-content">
+      <div ng-if="tabData.info.configData.language != 'json'"
+        id="{{name}}-pane1-1"
+        class="text-content split split-vertical" 
+        hljs hljs-language="{{tabData.info.configData.language}}" hljs-source="tabData.data.sourceContent"
+        >
+      </div>
+
+      <json-formatter 
+        ng-if="tabData.info.configData.language == 'json'"
+        json="tabData.data.rawData" open="2"></json-formatter>
+
+      <div id="{{name}}-pane1-2" class="log-data split split-vertical">
+        
+      </div>  
+    </div>
+    <div id="{{name}}-pane2" class= "split split-horizontal">
+      <div id="{{name}}-pane2-1" class="split split-vertical">
+        <section>
+          <md-subheader class="md-primary md-no-sticky">Configuration</md-subheader>
+          <md-autocomplete
+            md-selected-item="configPane.seletedPackageConfig"
+            md-search-text-change="configPane.searchPackageChange(configPane.searchPackageText)"
+            md-search-text="configPane.searchPackageText"
+            md-items="item in querySearchPackage(configPane.searchPackageText) | orderBy:displayName"
+            md-selected-item-change="configPane.selectedPackageChange(item)"
+            md-item-text="item.displayName"
+            md-min-length="0"
+            placeholder="Choose package?"
+            md-menu-class="autocomplete-custom-template">
+            <md-item-template>
+              <span class="item-title">
+                <span md-highlight-text="configPane.searchPackageText" md-highlight-flags="^i">{{item.displayName}}</span>
+              </span>
+              <span class="item-metadata">
+                  <span >{{item.name}}</span>
+              </span>
+            </md-item-template>
+            <md-not-found>
+              No states matching "{{configPane.searchPackageText}}" were found.
+            </md-not-found>
+          </md-autocomplete>
+        </section>
+        
+      </div>
+      <div id="{{name}}-pane2-2" class="split split-vertical class-builder-properties">
+        <section>
+          <md-subheader class="md-primary md-no-sticky">Properties</md-subheader>
+          <json-formatter json="tabData.data.rawData.infoContainer" open="1"></json-formatter> 
+        </section>
+      </div>
+    </div>
+
+  </md-content>
+</md-container>

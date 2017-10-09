@@ -1,0 +1,72 @@
+<md-dialog aria-label="Add method" class="method-dialog">
+	<form name="methodForm" ng-cloak>
+		<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Method</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="assets/icons/ic_close_black_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+			<section class="add-annotation" layout="column" layout-sm="column">
+				<h5>
+					<span>Annotations</span>
+					<md-button class="md-icon-button md-primary" aria-label="Add annotattion"
+						ng-disabled="methodForm.annotattion.$invalid || isExistingAnnotation"
+						ng-click="onAddAnnotationClick($event)">
+		        <md-icon md-svg-icon="assets/icons/plus.svg"></md-icon>
+		      </md-button>
+				</h5>
+				<div ng-repeat = "annotation in methodInfo.annotations">{{annotation}}</div>
+				<md-input-container class="md-block">
+			    <label>Annotation</label>
+		      <input required name="annotattion"
+		      ng-model="newAnnotattion"
+		      ng-change="validateAnnotation($event)"/>
+			  </md-input-container>
+			</section>
+			<section>
+				<div layout="row" flex>
+					<md-input-container class="md-block">
+				    <span>{{methodInfo.accessModifier}}</span>
+				  </md-input-container>
+					<md-input-container class="md-block">
+				    <md-autocomplete
+		          md-selected-item="methodInfo.returnType"
+		          md-search-text="returnTypePattern"
+		          md-items="item in querySearchReturnType(returnTypePattern)"
+		          md-item-text="item.className"
+		          md-min-length="0"
+		          >
+			        <md-item-template>
+			        	<span class="item-title">
+			          	<span md-highlight-text="returnTypePattern" md-highlight-flags="^i">{{item.name}}</span>
+			          </span>
+			        </md-item-template>
+			        <md-not-found>
+			          No type matching "{{returnTypePattern}}" were found.
+			        </md-not-found>
+			      </md-autocomplete>
+				  </md-input-container>
+					<md-input-container class="md-block">
+				    <label>Name</label>
+			      <input required name="methodName"
+			      ng-model="methodInfo.name" />
+				  </md-input-container>
+				</div>
+				
+			</section>
+
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button ng-click="cancel()">
+       Cancel
+      </md-button>
+      <md-button class="md-primary" ng-click="apply()">
+       Apply
+      </md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

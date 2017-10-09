@@ -1,0 +1,859 @@
+/*==============color================*/
+$blue-color: #1E1E59;
+$dark-green-color: #004518;
+$light-green-color: #007336;
+$text-color: #586778;
+$border-color: #d0d8e1;
+$images-path: "../images/";
+
+
+/*==============font================*/
+$font-raleway: 'Raleway', sans-serif;;
+
+@mixin radialgb {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#037d3c+0,037748+50,1b145a+100 */
+background: #037d3c; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #037d3c 0%, #037748 50%, #1b145a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #037d3c 0%,#037748 50%,#1b145a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #037d3c 0%,#037748 50%,#1b145a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#037d3c', endColorstr='#1b145a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin radialgbv {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#037d3c+0,1b145a+100 */
+background: #037d3c; /* Old browsers */
+background: -moz-linear-gradient(top,  #037d3c 0%, #1b145a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #037d3c 0%,#1b145a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #037d3c 0%,#1b145a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#037d3c', endColorstr='#1b145a',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin arrowleft($color, $size) {
+  &:before{
+    width: 0;
+    height: 0;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    content: " ";
+    display: block;
+    position: absolute;
+  }
+}
+
+@mixin clearboth {
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin transition-ac(){
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  min-height: 100%;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  min-height: 100%;
+}
+
+a{
+  color: $blue-color;
+  &:hover{
+    color: $light-green-color;
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font-raleway;
+  margin: 0px;
+  padding-right: 0px;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+  li{
+    list-style: none;
+  }
+}
+
+label{
+  font-weight: 400;
+  span{
+    font-weight: normal;
+  }
+}
+
+
+.p0{
+  padding: 0px;
+}
+
+.btn{
+  &.md-button.md-raised{
+    background: $light-green-color;
+    color: white ;
+    margin: 0px;
+    &[disabled]{
+      background: rgba(0,0,0,0.12);
+      color: rgba(0,0,0,0.38);
+      cursor: default;
+    }
+    &:hover:not([disabled]){
+      background: $blue-color;
+      color: white;
+    }
+    md-icon{
+      vertical-align: middle;
+      font-size: 22px;
+      display: inline-block;
+    }
+  }
+}
+.flex-offset-30, .offset-30{
+  margin-left: 30% !important;
+}
+
+.login-bg{
+  .md-button{
+    width: 100%;
+    margin: 0px;
+  }
+  @include radialgb;
+  .login-main-content{
+    position: relative;
+    &:after{
+      height: 5px;
+      display: block;
+      content: " ";
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: $blue-color;
+      z-index: 1;
+    }
+    &:before{
+      height: 5px;
+      display: block;
+      content: " ";
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      background: $light-green-color;
+      z-index: 1;
+    }
+    .login-main-white{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .btn{
+      width: 100%;
+    }
+  }
+  md-input-container{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    label{
+      font-size: 15px;
+    }
+    .md-raised{
+      margin: 0px;
+      width: 100%;
+      /*background: $light-green-color;*/
+      /*color: white;*/
+    }
+  }
+  .link-login{
+    margin: 0px 0px 15px 0px;
+    button{
+      width: auto;
+      min-width: auto;
+
+    }
+    button:nth-child(1){
+      float: left;
+      margin: 0px;
+    }
+    button:nth-child(2){
+      float: right;
+      margin-right: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+}
+.logo{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .md-icon.my-icon-button{
+    width: 100px;
+    height: 100px;
+    img{
+      width: 100%;
+    }
+  }
+  md-icon{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  p{
+    text-align: center;
+    color: $light-green-color;
+    margin: 5px;
+    font-weight: bold;
+    span{
+      color: $blue-color;
+    }
+  }
+}
+
+.md-input-invalid{
+  .ng-active{
+    .my-message{
+      opacity: 1;
+      margin-top: 0px;
+    }
+  }
+}
+
+.nav-bar{
+  background-color: #ECEFF1;
+}
+
+.md-sidenav { transition: 0.5s all }
+.md-toolbar{
+  background: white !important;
+  .left-md-toolbar{
+    .menu, h2{
+      display: inline-block;
+    }
+    .menu{
+      display: none;
+    }
+  }
+  .right-md-toolbar{
+
+  }
+}
+
+
+// md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar){
+//   color: black !important;
+// }
+md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon, md-toolbar:not(.md-menu-toolbar) md-icon{
+    color: white;
+    fill: white;
+    display: inline-block;
+}
+
+.main-container{
+  padding: 15px 15px 0px 15px;
+  display: block;
+  &:last-of-type{
+    padding-bottom: 15px;
+  }
+  .minfo-content{
+    padding: 15px;
+    background: white;
+    md-content{
+      background: white;
+    }
+    p{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      label{
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+      }
+      span{
+        display: inline-block;
+      }
+      strong{
+        display: inline-block;
+        width: 60%;
+      }
+    }
+    .right-content{
+      border-left: 1px solid #e5e5e5;
+      padding-left: 15px;
+    }
+    &.app-controller{
+      background: #fdfdfd;
+      .md-button{
+        margin: 10px;
+        display: inline-block;
+        padding: 10px 50px;
+      }
+    }
+  }
+  .vender-application-content{
+    width: 100%;
+    .md-button{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 16px
+    }
+    md-icon{
+      font-size: 30px;
+      vertical-align: middle;
+      display: inline-block;
+      height: 35px;
+      margin-right: 10px;
+    }
+    .md-button{
+      color: $light-green-color;
+      background: white;
+      md-icon{
+        color: $light-green-color;
+      }
+    }
+    .md-button:hover:not([disabled]){
+      background: $blue-color;
+      color: white;
+      md-icon{
+        color: white;
+      }
+    }
+  }
+  .title{
+    display: block;
+    background: #e5e5e5;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+.nav-header{
+  .docs-logo{
+    padding: 8px;
+    display: block;
+    md-icon{
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    h1 {
+      vertical-align: middle;
+      line-height: 1.5em;
+      padding: 0px 40px;
+      font-size: 24px;
+      display: inline-block;
+    }
+  }
+}
+md-list-item{
+  .md-button{
+    margin: 0px;
+    width: 100%;
+    text-align: left;
+    align-items: left;
+    md-icon{
+      font-size: 18px;
+      margin-right: 15px;
+      margin-left: 20px;
+    }
+    span{
+      
+      text-transform: normal;
+    }
+  }
+}
+
+.fr{
+  float: right;
+}
+
+.dt.material .dt-body .dt-row .dt-cell{
+  font-size: 14px;
+}
+
+.image-app-content, .image-banner-content{
+  margin-bottom: 15px;
+}
+
+.image-banner-content{
+  width: 705px;
+  height: 344px;
+  border: 1px solid #e5e5e5;
+  display: block;
+}
+
+.image-screenshot-content{
+  width: 228px;
+  height: 512px;
+  border: 1px solid #e5e5e5;
+  display: block;
+  margin-right: 15px;
+}
+
+.image-icon-content{
+  width: 128px;
+  height: 128px;
+  border: 1px solid #e5e5e5;
+  display: block;
+}
+
+.btn-save{
+  margin: 15px 0 0 0 !important;
+}
+
+.question{
+  margin-bottom: 30px;
+  .question-text{
+    display: block;
+    margin-bottom: 10px;
+  }
+  md-radio-button{
+    display: inline-block;
+    margin-right: 50px;
+    margin-bottom: 5px;
+  }
+  md-input-container{
+    width: 100%;
+  }
+}
+.right-md-toolbar{
+  text-align: right;
+  a{
+    display: inline-block;
+  }
+}
+
+md-toolbar.md-default-theme.title-main:not(.md-menu-toolbar), md-toolbar.title-main:not(.md-menu-toolbar){
+  background: #e5e5e5;
+}
+
+.list-card-ct{
+  md-card{
+    position: relative;
+    &.disabled{
+      pointer-events: none;
+      md-icon{
+        color: #e5e5e5;
+      }
+      span{
+        color: #e5e5e5;
+      }
+    }
+    .edit-btn{
+      color: $light-green-color;
+      position: absolute;
+      top: 24px;
+      right: 15px;
+      text-decoration: none;
+      display: none;
+    }
+    &:hover{
+      .edit-btn{
+        display: block;
+      }
+    }
+  }
+  md-icon{
+    margin: 0px;
+    font-size: 40px;
+    color: $light-green-color;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+  }
+  span{
+    display: flex;
+    padding: 10px 10px 10px 55px;
+    height: 100%;
+    line-height: 16px;
+    align-items: center;
+  }
+}
+
+.md-block.banner-content.flex{
+  margin-bottom: 30px;
+}
+
+//colors
+$color_apple_approx: #78909C;
+$white: white;
+$black_38: rgba(0,0,0,0.38);
+$red: red;
+$color_japanese_laurel_approx: green;
+$color_green_50_approx: rgba(0, 200, 0, 0.5);
+$black_30: rgba(0,0,0,0.3);
+$color_gallery_approx: #eee;
+
+//urls
+$url_0: url(./assets/images/grips/vertical.png);
+$url_1: url(./assets/images/grips/horizontal.png);
+
+#main-app {
+  height: 100%;
+}
+md-list-item {
+  cursor: auto;
+  &.active {
+    background: $color_apple_approx;
+    color: $white;
+    .md-list-item-inner .md-list-item-text h3 {
+      color: $white;
+    }
+  }
+}
+.image_url {
+  height: 100px;
+}
+//.layout-column {
+//   flex: 1 0 auto !important;
+// }
+.a_reviewnav {
+  text-decoration: none;
+  font-size: 13px;
+}
+a {
+  &.can_click {
+    cursor: pointer !important;
+    * {
+      cursor: pointer !important;
+    }
+  }
+  &.cant_click {
+    cursor: default !important;
+    * {
+      cursor: default !important;
+    }
+  }
+}
+.errors {
+  color: $red;
+}
+.success {
+  color: $color_japanese_laurel_approx;
+}
+.message {
+  &.success {
+    background: $color_green_50_approx;
+    color: $white;
+  }
+  &.errors {
+    background: $red;
+    color: $white;
+  }
+}
+
+.overlay-spinner {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  &:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black_30;
+  }
+  &:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+  }
+}
+@-webkit-keyframes lds-microsoft {
+  0% {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(0);
+  }
+  100% {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(360deg);
+  }
+}
+@keyframes lds-microsoft {
+  0% {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(0);
+  }
+  100% {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: scale(0.7);
+}
+.lds-microsoft {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 50%;
+    animation: lds-microsoft 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    &:nth-child(0) {
+      background: $white;
+      top: 134.613px;
+      left: 147.535px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: -47.535px -34.613px;
+      animation-delay: 0s;
+    }
+    &:nth-child(1) {
+      background: $white;
+      top: 147.535px;
+      left: 134.613px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: -34.613px -47.535px;
+      animation-delay: -0.062s;
+    }
+    &:nth-child(2) {
+      background: $white;
+      top: 156.672px;
+      left: 118.788px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: -18.788px -56.672px;
+      animation-delay: -0.125s;
+    }
+    &:nth-child(3) {
+      background: $white;
+      top: 161.401px;
+      left: 101.137px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: -1.137px -61.401px;
+      animation-delay: -0.187s;
+    }
+    &:nth-child(4) {
+      background: $white;
+      top: 161.401px;
+      left: 82.863px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: 17.137px -61.401px;
+      animation-delay: -0.25s;
+    }
+    &:nth-child(5) {
+      background: $white;
+      top: 156.672px;
+      left: 65.212px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: 34.788px -56.672px;
+      animation-delay: -0.312s;
+    }
+    &:nth-child(6) {
+      background: $white;
+      top: 147.535px;
+      left: 49.387px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: 50.613px -47.535px;
+      animation-delay: -0.375s;
+    }
+    &:nth-child(7) {
+      background: $white;
+      top: 134.613px;
+      left: 36.465px;
+      //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+      transform-origin: 63.535px -34.613px;
+      animation-delay: -0.437s;
+    }
+  }
+}
+.split {
+  //Instead of the line below you could use @include box-sizing($bs)
+  // box-sizing: border-box;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  p {
+    padding: 20px;
+  }
+  &.split-horizontal {
+    height: 100%;
+    float: left;
+  }
+}
+.split-flex {
+  //Instead of the line below you could use @include box-sizing($bs)
+  // box-sizing: border-box;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  p {
+    padding: 20px;
+  }
+}
+.gutter {
+  background-color: $color_gallery_approx;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  &.gutter-horizontal {
+    background-image: $url_0;
+    cursor: ew-resize;
+    height: 100%;
+    float: left;
+  }
+  &.gutter-vertical {
+    background-image: $url_1;
+    cursor: ns-resize;
+  }
+}
+md-radio-group[disabled] md-radio-button {
+  .md-off {
+    border-color: $black_38 !important;
+  }
+  .md-on {
+    background-color: $black_38 !important;
+  }
+}
+.lf-ng-md-file-input .lf-ng-md-file-input-preview-container button.close {
+  display: none;
+}
+md-dialog.dtp {
+  max-width: 300px;
+}
+
+.md-autocomplete-suggestions-container li .highlight {
+  color: green;
+}
+
+#main-sidenav{
+  z-index: 2;
+  height: 100%;
+  -webkit-box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.5);
+  md-sidenav {
+    height: 100%;
+  }
+}
+
+.project-component{
+  height: 100%;
+  #project-sidenav{
+    z-index: 1;
+    height: 100%;
+    max-width: 250px;
+  }
+}
+.recent-project{
+  .project-name {
+    width: 70%;
+  }
+  .project-actions{
+    .md-button {
+      width: 100%;
+      margin: 0px;
+      md-icon {
+        margin: 0px;
+      }
+      &.active {
+        md-icon {
+          color: orange;
+        }
+        
+      }
+    }
+  }
+}
+.tab-container {
+  .tab-content {
+    section {
+      
+    }
+  }
+}
+
+.method-list-dialog {
+
+  md-dialog-content {
+    padding: 8px;
+    md-list-item {
+      .md-list-item-text {
+        .signature {
+          margin: 0px;
+          pre{
+            margin-top: 0px;
+          }
+        }
+      }
+    }
+    
+  }
+  
+}
+
+.autocomplete-custom-template li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal;
+}
+.autocomplete-custom-template li:last-child {
+  border-bottom-width: 0;
+}
+.autocomplete-custom-template .item-title,
+.autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2;
+}
+
+.class-toolbar {
+  min-height: 32px;
+  height: 32px;
+}
+
+md-input-container{
+  .md-errors-spacer:empty {
+      min-height: 4px;
+  }
+}
+/*************************************/
+.icon-s20{
+  svg{
+    width: 20px;
+  height: 20px;
+  }
+}
+
+

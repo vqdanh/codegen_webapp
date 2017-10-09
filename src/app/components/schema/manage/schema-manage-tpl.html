@@ -1,0 +1,64 @@
+<md-content layout-fill>
+  <md-tabs md-selected="selectedTabIndex" md-border-bottom layout-fill
+  md-swipe-content ng-cloak>
+    <md-tab label="Connection" md-on-select="onSelectedTab('connection')">
+      <form class="db-connection-form">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Host</label>
+            <input ng-model="dbConnection.host" required>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Port</label>
+            <input ng-model="dbConnection.port" required>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Username</label>
+            <input ng-model="dbConnection.username" required>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Password</label>
+            <input ng-model="dbConnection.password" required>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Database name</label>
+            <input ng-model="catalogName" required>
+          </md-input-container>
+          <div layout="row">
+            <span flex></span>
+            <md-button class="md-raised md-primary" ng-click="onConnectClick($event)">Connect</md-button>
+          </div>
+       </form>
+    </md-tab>
+    <md-tab label="Schema" ng-if="schemaJson" md-on-select="onSelectedTab('schemaSql')">
+      <md-container class="tab-container" flex layout-fill>
+        <div class="tab-1" >
+          <json-formatter json="schemaJson" open="2"></json-formatter>
+        </div>
+      </md-container>
+    </md-tab>
+    <md-tab label="Tables({{schema.tableInfos.length}})" 
+      md-on-select="onSelectedTab('tables')"
+      ng-if="schema.tableInfos" ng-cloak>
+      <md-container class="tab-container" flex layout-fill>
+        <div class="tab-2" >
+          <md-list md-border-bottom flex>
+            <md-input-container class="md-block table-searchbox">
+              <label>Search...</label>
+              <input ng-model="searchText"/>
+            </md-input-container> 
+            <md-list-item class="md-1-line" 
+            ng-class="table.name == selectedTableName?'active':''"
+            ng-repeat="table in schema.tableInfos | filter:{name:searchText}:false" 
+            ng-click="onSelectTable(table, $index)">
+              <div class="md-list-item-text" layout="column">
+                <h3>{{$index+1}}. {{table.name }}</h3>
+              </div>
+              <md-divider ></md-divider>
+            </md-list-item>
+            
+          </md-list>
+        </div>
+      </md-container>
+    </md-tab>
+  </md-tabs>
+</md-content>

@@ -1,0 +1,49 @@
+<div layout="column" flex id="content" role="main" layout-fill>
+	<md-content layout="vertical" flex id="content" class="login-bg" layout-fill>
+		<div layout="row" layout-align="center center" layout-fill>
+			<md-whiteframe class="md-whiteframe-z5 p0 login-main-content" layout="column" flex="30" flex-md="40" flex-sm="80" flex-xs="90" layout-padding="0">
+				<md-content md-theme="docs-dark" flex="100" layout="column" class="login-main-white">
+					<md-container>
+						<div class="logo">
+							<!-- <md-icon md-svg-icon="logo"></md-icon> -->
+							<md-icon class="md-icon my-icon-button" aria-label="Bookmark">
+								<img src="assets/images/logo.png" alt="Bookmark">
+							</md-icon>
+							<p><span>m</span>CREDENTIALER</p>
+						</div>
+					</md-container>
+					<form name="myForm">
+						<md-input-container class="md-block">
+						<label>Login</label>
+						<input ng-model="user.username" type="text" name="username" placeholder="username" required/>
+						<div ng-messages="myForm.username.$error" class="errors" role="alert" multiple>
+							<div ng-message="required" class="my-message">Please enter your username.</div>
+						</div>
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>Password</label>
+							<input ng-model="user.password" type="password" name="password" placeholder="password" required md-maxlength="16"  ng-keyup="$event.keyCode == 13 && fncLogin()"/>
+							<div ng-messages="myForm.password.$error" class="errors" role="alert" multiple>
+								<div ng-message="required" class="my-message">Please enter your password.</div>
+								<div ng-message="md-maxlength" class="my-message">Too long.</div>
+							</div>
+						</md-input-container>
+						<p ng-show="login_message" class="errors">{{ login_message }}</p>
+						<md-button ng-click="fncLogin()" ng-disabled="myForm.$invalid || onSaving" class="md-raised md-primary" flex="100" flex-sm="100">
+						<span>
+							 Login
+						</span>
+						<md-icon md-svg-icon="spin" ng-show="onSaving"></md-icon>
+						</md-button>
+					</form>
+					<md-input-container layout-align="center end">
+						<div layout="row" class="link-login">
+							<md-button flex="20" flex-sm="100">SIGNUP</md-button>
+							<md-button flex="50" flex-offset="30" >FORGET PASSWORD?</md-button>
+						</div>
+					</md-input-container>
+				</md-content>
+			</md-whiteframe>
+		</div>
+	</md-content>
+</div>

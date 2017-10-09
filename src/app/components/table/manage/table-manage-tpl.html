@@ -1,0 +1,34 @@
+<md-content layout-fill class="table-manage">
+  <div ng-draggable="{animate:true}" ng-if="tabs.length" class="table-fab-toolbar" ng-class="toolBarConfig.isOpen? 'table-fab-toolbar-open':'table-fab-toolbar-close'">
+    <md-fab-toolbar md-open="toolBarConfig.isOpen" 
+      md-direction="{{toolBarConfig.selectedDirection}}">
+        <md-fab-trigger class="align-with-text">
+          <md-button aria-label="menu" class="md-fab md-primary">
+            <md-icon md-svg-src="assets/icons/menu.svg"></md-icon>
+          </md-button>
+        </md-fab-trigger>
+
+        <md-toolbar>
+          <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="download all files" class="md-icon-button" ng-click="onSaveAllFileClick()">
+              <md-icon md-svg-src="assets/icons/briefcase-download-button.svg"></md-icon>
+            </md-button>
+           
+            <md-button aria-label="download current file" class="md-icon-button" ng-click="onSaveFileClick()">
+              <md-icon md-svg-src="assets/icons/file_download.svg"></md-icon>
+            </md-button>
+            <md-button aria-label="copy to clipboard" class="md-icon-button">
+              <md-icon md-svg-src="assets/icons/clipboard.svg" ng-if="clipboardSupported" ng-click ="onCopyToClipBoardClick()"></md-icon>
+            </md-button>
+
+          </md-fab-actions>
+        </md-toolbar>
+      </md-fab-toolbar>
+  </div>
+  <md-tabs md-selected="selectedTabIndex" md-swipe-content
+    md-border-bottom  layout-fill ng-cloak>
+    <md-tab ng-repeat="tabData in tabs | orderObjectBy:ordinal" label="{{tabData.info.displayName}}" md-on-select="onTabSelected(tabData)">
+      <table-edit project-config="projectConfig" tab-data="tabData" name="tab-{{tabData.info.tabKey}}" ng-cloak></table-edit>
+    </md-tab>
+  </md-tabs>
+</md-content>

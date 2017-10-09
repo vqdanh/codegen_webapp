@@ -1,0 +1,39 @@
+<md-dialog aria-label="Add method" class="method-list-dialog">
+	<form name="methodForm" ng-cloak>
+		<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Method</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="assets/icons/ic_close_black_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+			<md-list ng-cloak>
+				<md-list-item>
+				  <div class="md-list-item">Choose all methods</div>
+					<md-checkbox class="md-secondary" ng-model="isSelectAll" aria-labe="" ng-change="onSelectAllChange($event)"></md-checkbox>
+				</md-list-item>
+				<md-divider></md-divider>
+				<br/>
+			  <md-list-item ng-repeat="item in methodInfos">
+			  	<div class="md-list-item-text" layout="column" layout-wrap>
+				    <h4>{{ item.methodInfo.name }}</h4>
+				    <p class="signature" hljs hljs-language="java" hljs-source="item.methodSignature" layout-wrap></p>
+				  </div>
+			    <md-checkbox class="md-secondary" ng-model="item.wanted" ng-change="onSelectMethodChange($event, item)"></md-checkbox>
+			  </md-list-item>
+			</md-list>
+
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button ng-click="cancel()">
+       Cancel
+      </md-button>
+      <md-button class="md-primary" ng-click="apply()">
+       Apply
+      </md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

@@ -1,0 +1,40 @@
+<div id="main-app" flex layout="row">
+	<!-- sidenav -->
+	<side-navbar id="main-sidenav"
+		sidenav-id="main-sidenav"
+		toogle-lock-open="true"
+		header-data="mainSideNav.headerData"
+		menu-items = "mainSideNav.menuItems">
+		</side-navbar>
+	<!-- sidenav -->
+	<md-content flex id="content">
+
+		<!-- header -->
+		<div header ></div>
+		<!-- header -->
+		<!-- body view -->
+		<ui-view></ui-view>
+		<!-- body view -->
+		<!-- footer -->
+		<div footer ></div>
+		<!-- footer -->
+		</md-content>
+		<spinner name="globalSpinner">
+		<div class="overlay-spinner blury">
+			<div class="loading">
+				<div class="lds-microsoft">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+			
+		</spinner>
+</div>
+

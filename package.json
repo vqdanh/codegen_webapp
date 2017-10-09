@@ -1,0 +1,380 @@
+{
+  "name": "codegen",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Codegen Application",
+  "repository": "",
+  "license": "DanhVo",
+  "jspm": {
+    "main": "codegen.js",
+    "dependencies": {
+      "angular-animate": "github:angular/bower-angular-animate@^1.6.4",
+      "angular-aria": "github:angular/bower-angular-aria@^1.6.4",
+      "angular-clipboard": "npm:angular-clipboard@^1.6.1",
+      "angular-cookies": "github:angular/bower-angular-cookies@^1.6.4",
+      "angular-file-saver": "npm:angular-file-saver@^1.1.3",
+      "angular-highlightjs": "npm:angular-highlightjs@^0.7.npm 1",
+      "angular-local-storage": "npm:angular-local-storage@^0.7.1",
+      "angular-material": "github:angular/bower-material@master",
+      "angular-material-data-table": "github:daniel-nagy/md-data-table@^0.10.10",
+      "angular-material-datetimepicker": "github:logbon72/angular-material-datetimepicker@^1.5.1",
+      "angular-material-fileinput": "github:shuyu/angular-material-fileinput@^1.5.2",
+      "angular-messages": "github:angular/bower-angular-messages@^1.6.4",
+      "angular-resource": "github:angular/bower-angular-resource@^1.6.4",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.6",
+      "angular-spinners": "npm:angular-spinners@3.1.2",
+      "angular-ui-router": "github:angular-ui/angular-ui-router-bower@^1.0.5",
+      "jquery": "npm:jquery@1.12.4",
+      "jqueryui": "npm:jqueryui@^1.11.1",
+      "js-graph-algorithms": "npm:js-graph-algorithms@^1.0.14",
+      "json": "github:systemjs/plugin-json@^0.1.0",
+      "jsonformatter": "npm:jsonformatter@^0.6.0",
+      "jszip": "npm:jszip@^3.1.4",
+      "moment": "github:moment/moment@^2.18.1",
+      "ng-redux": "npm:ng-redux@^3.5.2",
+      "pluralize": "npm:pluralize@^7.0.0",
+      "split-pane": "npm:split-pane@^0.5.1",
+      "split.js": "npm:split.js@^1.3.5",
+      "stringify-object": "npm:stringify-object@^3.2.0",
+      "text": "github:systemjs/plugin-text@^0.0.4",
+      "css": "github:systemjs/plugin-css@^0.1.32",
+      "babel": "npm:babel-core@^6.23.1"
+    },
+    "devDependencies": {
+      "angular-mocks": "npm:angular-mocks@^1.6.2",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.21",
+      "plugin-traceur": "npm:systemjs-plugin-traceur@^0.0.3"
+    },
+    "peerDependencies": {
+      "@angular/common": "npm:@angular/common@^4.0.0",
+      "@angular/core": "npm:@angular/core@4.4.3",
+      "angular": "npm:angular@^1.6.2",
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "rxjs": "npm:rxjs@^5.4.1",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "timers": "github:jspm/nodelibs-timers@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
+      "zone.js": "npm:zone.js@^0.8.4"
+    },
+    "overrides": {
+      "github:angular/bower-angular-animate@1.6.5": {
+        "main": "angular-animate",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-animate.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-aria@1.6.5": {
+        "main": "angular-aria",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-aria.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-cookies@1.6.5": {
+        "main": "angular-cookies",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0-rc.1"
+        },
+        "meta": {
+          "angular-cookies.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-messages@1.6.5": {
+        "main": "angular-messages",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.5.0"
+        },
+        "meta": {
+          "angular-messages.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-mocks@1.5.8": {
+        "main": "angular-mocks",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "github:angular/bower-angular@^1.3.0"
+        },
+        "meta": {
+          "angular-mocks.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-resource@1.6.5": {
+        "main": "angular-resource",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.4.8"
+        },
+        "meta": {
+          "angular-resource.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-route@1.6.4": {
+        "main": "angular-route",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-route.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-sanitize@1.6.6": {
+        "main": "angular-sanitize",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-sanitize.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular@1.6.6": {
+        "main": "angular",
+        "meta": {
+          "angular.js": {
+            "exports": "angular",
+            "format": "global"
+          }
+        }
+      },
+      "github:jmcriffey/bower-traceur-runtime@0.0.93": {
+        "format": "global",
+        "meta": {
+          "traceur-runtime.js": {
+            "exports": "$traceurRuntime",
+            "format": "global"
+          }
+        }
+      },
+      "github:jmcriffey/bower-traceur@0.0.93": {
+        "format": "global",
+        "meta": {
+          "traceur.js": {
+            "exports": "traceur",
+            "format": "global"
+          }
+        }
+      },
+      "github:moment/moment@2.18.1": {
+        "main": "moment",
+        "format": "global",
+        "meta": {
+          "locale/*.js": {
+            "deps": [
+              "../moment"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "npm:angular@1.6.6": {
+        "format": "global",
+        "jspmNodeConversion": false,
+        "main": "angular",
+        "meta": {
+          "angular.js": {
+            "exports": "angular",
+            "format": "global"
+          }
+        }
+      },
+      "npm:debug@2.6.8": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:lodash@4.17.4": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:pbkdf2@3.0.14": {
+        "main": "browser.js"
+      },
+      "npm:safe-buffer@5.1.1": {
+        "browser": "index.js"
+      },
+      "npm:tslib@1.7.1": {
+        "format": "cjs",
+        "meta": {
+          "tslib.js": {
+            "esModule": true
+          }
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.6",
+    "@types/angular-mocks": "^1.5.9",
+    "@types/angular-ui-router": "^1.1.36",
+    "@types/jquery": "^2.0.40",
+    "autoprefixer": "^6.7.3",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^4.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.22.0",
+    "browser-sync": "^2.18.8",
+    "browser-sync-spa": "^1.0.3",
+    "del": "^2.2.2",
+    "es6-shim": "^0.35.3",
+    "eslint": "^3.15.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-config-xo-space": "^0.15.0",
+    "eslint-plugin-angular": "^1.6.1",
+    "eslint-plugin-babel": "^4.0.1",
+    "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-hub": "frankwallis/gulp-hub#d461b9c700df9010d0a8694e4af1fb96d9f38bf4",
+    "gulp-insert": "^0.5.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-uglify-es": "^0.1.3",
+    "gulp-useref": "^3.1.2",
+    "gulp-util": "^3.0.8",
+    "jasmine": "^2.5.3",
+    "jspm": "0.17.0-beta.25",
+    "karma": "^1.4.1",
+    "karma-angular-filesort": "^1.0.2",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-jspm": "^2.2.1",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-phantomjs-shim": "^1.4.0",
+    "lazypipe": "^1.0.1",
+    "phantomjs-prebuilt": "^2.1.14",
+    "systemjs-builder": "0.15.23",
+    "uglify-save-license": "^0.4.1"
+  },
+  "scripts": {
+    "build": "gulp",
+    "serve": "gulp serve",
+    "serve:dist": "gulp serve:dist",
+    "test": "gulp test",
+    "test:auto": "gulp test:auto",
+    "jspm": "jspm"
+  },
+  "eslintConfig": {
+    "globals": {
+      "expect": true,
+      "SystemJS": true
+    },
+    "root": true,
+    "env": {
+      "browser": true,
+      "jasmine": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+      "xo-space/esnext"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "buildjs": "^1.0.3",
+    "fs": "0.0.1-security",
+    "karma": "^1.7.0",
+    "run-async-gen": "^1.2.0",
+    "sql-to-json": "^1.5.0"
+  }
+}

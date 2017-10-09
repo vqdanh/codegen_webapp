@@ -1,0 +1,35 @@
+<md-content layout-fill >
+	<div class="project-container" layout="row" layout-wrap>
+		<div flex="25">
+			<md-card class="add-project-card" ng-click="onAddNewProjectClick()">
+				<md-button layout-fill >
+			  	Add New Project
+			  </md-button>
+			</md-card>
+		</div>
+		<div ng-repeat="project in projects" flex="25">
+		  <md-card class="project-card"
+		  	md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" 
+		  	md-theme-watch>
+		    <md-card-title>
+		      <md-card-title-text>
+		        <span class="md-headline">{{project.name}}</span>
+		        <span class="md-subhead">Small</span>
+		      </md-card-title-text>
+		      <md-card-title-media>
+		        <div class="md-media-sm card-media"></div>
+		      </md-card-title-media>
+		    </md-card-title>
+		    <md-card-actions layout="row" layout-align="end center">
+		    	<md-button ng-click="onDevelopProjectClick(project)" class="md-icon-button" aria-label="Show">
+			    	<md-icon md-svg-icon="assets/icons/view.svg"></md-icon>
+			    </md-button>
+			    <md-button ng-click="onEditProjectClick(project)" class="md-icon-button" aria-label="Edit">
+			    	<md-icon md-svg-icon="assets/icons/edit.svg" class="icon-s20"></md-icon>
+			    </md-button>
+		    </md-card-actions>
+		  </md-card>
+		</div>
+	</div>
+	
+</md-content>

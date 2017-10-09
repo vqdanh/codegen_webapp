@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<title>CodeGen</title>
+	<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+
+	<!-- build:css(./) vendor.css  -->
+
+	<link rel="stylesheet" type="text/css" href="jspm_packages/github/angular/bower-material@master/angular-material.min.css"/>
+	<link rel="stylesheet" type="text/css" href="jspm_packages/github/daniel-nagy/md-data-table@0.10.10/dist/md-data-table.min.css"  />
+	<link rel="stylesheet" type="text/css" href="jspm_packages/github/shuyu/angular-material-fileinput@1.5.2/dist/lf-ng-md-file-input.min.css"  />
+	<link rel="stylesheet" type="text/css" href="jspm_packages/github/logbon72/angular-material-datetimepicker@1.5.1/css/material-datetimepicker.css"  />
+	<link rel="stylesheet" type="text/css" href="jspm_packages/npm/highlight.js@9.12.0/styles/xcode.css" />
+	<!-- endbuild -->
+
+	<!-- build:css(build/.tmp) index.css -->
+  <link rel="stylesheet" href="index.css"></link>
+  <!-- endbuild -->
+
+</head>
+
+<body ng-cloak layout="column" ng-cloak>
+	<div ui-view layout-fill></div>	
+</body>
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+<!-- build:js(build/.tmp) index.js -->
+<script src="jspm_packages/system.js"></script>
+<script src="jspm.browser.js"></script>
+<script src="jspm.config.js"></script>
+
+<script>
+  System.import('src/index.js');
+</script>
+<!-- endbuild -->
+</html>

@@ -1,0 +1,10 @@
+md-list-item.md-1-line .md-list-item-text h3 {
+	   font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    margin: 0;
+    line-height: 1.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
